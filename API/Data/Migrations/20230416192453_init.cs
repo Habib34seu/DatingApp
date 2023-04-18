@@ -26,7 +26,7 @@ namespace API.Data.Migrations
                     LastActive = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Gander = table.Column<string>(type: "TEXT", nullable: true),
                     Introduction = table.Column<string>(type: "TEXT", nullable: true),
-                    LokingFor = table.Column<string>(type: "TEXT", nullable: true),
+                    LookingFor = table.Column<string>(type: "TEXT", nullable: true),
                     Interests = table.Column<string>(type: "TEXT", nullable: true),
                     City = table.Column<string>(type: "TEXT", nullable: true),
                     Country = table.Column<string>(type: "TEXT", nullable: true)
