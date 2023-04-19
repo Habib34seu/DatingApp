@@ -18,11 +18,12 @@ export class MemberDetailComponent implements OnInit{
   ngOnInit(): void {
     this.loadMember();
 
-    this.galleryOptions=[
+    this.galleryOptions =[
       {
         width: '500px',
         height: '500px',
         imagePercent: 100,
+        thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
         preview:false
       }
@@ -30,27 +31,31 @@ export class MemberDetailComponent implements OnInit{
     
   }
   getImages(){
-
-    if(!this.member) return [];
+    if(!this.member)return [];
     const imageUrls = [];
     for(const photo of this.member.photos){
       imageUrls.push({
         small: photo.url,
-        medimu: photo.url,
+        medium: photo.url,
         big:photo.url
       })
     }
+
     return imageUrls;
+   
   }
   loadMember(){
-    const username= this.route.snapshot.paramMap.get('username');
+    const username = this.route.snapshot.paramMap.get('username');
     if(!username) return;
     this.memberService.getMember(username).subscribe({
-      next: member => {
+      next: member=> {
         this.member = member;
-        this.galleryImages = this.getImages();
+        this.galleryImages = this.getImages()
       }
-    })
+    });
+    console.log();
   }
+
+  
 
 }
